@@ -5,8 +5,8 @@ import '../styles/PhotoList.scss';
 const PhotoList = (props) => {
   return(
   <ul className="photo-list">
-    {props.photos.map(photoItem=>{
-     return( <PhotoListItem key={photoItem.id} props={photoItem}></PhotoListItem> )
+    {props.photos.map((photoItem, index)=>{
+     return( <PhotoListItem key={index} props={photoItem}></PhotoListItem> )
     })}
   </ul>
   )
