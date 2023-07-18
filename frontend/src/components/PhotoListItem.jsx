@@ -5,19 +5,19 @@ import '../styles/PhotoListItem.scss';
 import PhotoFavButton from './PhotoFavButton' 
 
 
-const PhotoListItem = ({props}) => {
+const PhotoListItem = (props) => {
   /* Insert React */
 
-  const username = props.user.username  || props.username
-  const imageSource = props.urls.full || props.imageSource
-  const id = props.id
-  const location = props.location
-  const profile = props.urls.regular  || props.profile
-  console.log(props)
+  const username = props.props.user.username  || props.props.username
+  const imageSource = props.props.urls.full || props.imageSource
+  const id = props.props.id || props.id
+  const location = props.props.location || props.location
+  const profile = props.props.urls.regular  || props.profile
+
   return (
     
     <div className="photo-list__item">
-        <PhotoFavButton className="photo-list--fav-icon"/>
+        <PhotoFavButton className="photo-list--fav-icon" displayAlert={props.displayAlert} setDisplayAlert={props.setDisplayAlert} fill={props.fill} setFill={props.setFill} />
         <img className="photo-list__image" src={imageSource}/>
         {/* <div className='photo-list__user-profile '>
             <div className='photo-list__user-info'>
@@ -30,17 +30,6 @@ const PhotoListItem = ({props}) => {
       
     </div>
   )
-}
-
-PhotoListItem.defaultProps = {
-  "id": "1",
-  "location": {
-    "city": "Montreal",
-    "country": "Canada"
-  },
-  "imageSource": `${process.env.PUBLIC_URL}/Image-1-Regular.jpeg`,
-  "username": "Joe Example",
-  "profile": `${process.env.PUBLIC_URL}/profile-1.jpg`
 }
 
 export default PhotoListItem
