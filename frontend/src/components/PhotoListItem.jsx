@@ -8,6 +8,9 @@ import PhotoFavButton from './PhotoFavButton'
 const PhotoListItem = (props) => {
   /* Insert React */
 
+  const { toggleFavourite } = props; // Add this line to extract the toggleFavourite prop
+
+
   const username = props.props.user.username  || props.props.username
   const imageSource = props.props.urls.full || props.imageSource
   const id = props.props.id || props.id
@@ -16,8 +19,15 @@ const PhotoListItem = (props) => {
 
   return (
     
-    <div className="photo-list__item">
-        <PhotoFavButton className="photo-list--fav-icon" displayAlert={props.displayAlert} setDisplayAlert={props.setDisplayAlert} fill={props.fill} setFill={props.setFill} />
+    <div className="photo-list__item" id={id}>
+        <PhotoFavButton 
+        // className="photo-list--fav-icon"  
+        displayAlert={props.displayAlert} 
+        setDisplayAlert={props.setDisplayAlert} 
+        fill={props.fill} 
+        setFill={props.setFill}
+        toggleFavourite={toggleFavourite} // Pass the toggleFavourite prop to the PhotoFavButton component
+        />
         <img className="photo-list__image" src={imageSource}/>
         {/* <div className='photo-list__user-profile '>
             <div className='photo-list__user-info'>
