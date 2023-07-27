@@ -4,7 +4,13 @@ import TopNavigationBar from '../components/TopNavigationBar';
 import PhotoList from '../components/PhotoList';
 
 
-const HomeRoute = ({ displayAlert, setDisplayAlert, fill, setFill }) =>{ 
+const HomeRoute = ({ 
+    displayAlert, 
+    setDisplayAlert, 
+    fill, 
+    setFill, 
+    handlePhotoClick 
+}) =>{ 
     const [favouritePhotos, setFavouritePhotos] = useState(new Set());
 
     const toggleFavourite = (id) => {
@@ -25,8 +31,8 @@ return(
         setDisplayAlert={setDisplayAlert}
         fill={fill}
         setFill={setFill}
-        favouritePhotos={favouritePhotos}
-        setFavouritePhotos={setFavouritePhotos}
+        // favouritePhotos={favouritePhotos}
+        // setFavouritePhotos={setFavouritePhotos}
         />
     <PhotoList
         displayAlert={displayAlert}
@@ -36,6 +42,7 @@ return(
         favouritePhotos={[...favouritePhotos]} // set to an array
         setFavouritePhotos={setFavouritePhotos}
         toggleFavourite={toggleFavourite} // Pass toggleFavourite here
+        handlePhotoClick={handlePhotoClick} // Pass handlePhotoClick to the PhotoList component
         />
         </div>
       );

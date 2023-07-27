@@ -11,7 +11,9 @@ const PhotoList = ({
     favouritePhotos,
     setFavouritePhotos,
     toggleFavourite, // Make sure toggleFavourite is defined here
+    handlePhotoClick, // Add handlePhotoClick to the destructured props
   }) => {
+
     return (
       <ul className="photo-list">
         {photos.map((photoItem, index) => (
@@ -25,8 +27,9 @@ const PhotoList = ({
             favouritePhotos={favouritePhotos}
             setFavouritePhotos={setFavouritePhotos}
             toggleFavourite={toggleFavourite} // Pass toggleFavourite here
-          />
-        ))}
+            handlePhotoClick={handlePhotoClick} // Pass handlePhotoClick to the PhotoListItem component
+            />
+          ))}
       </ul>
     );
   };

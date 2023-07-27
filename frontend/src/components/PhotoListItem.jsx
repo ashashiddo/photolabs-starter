@@ -10,6 +10,11 @@ const PhotoListItem = (props) => {
 
   const { toggleFavourite } = props; // Add this line to extract the toggleFavourite prop
 
+  const handleClick = () => {
+    toggleFavourite(props.props.id); // Call the toggleFavourite function with the photo ID
+    handlePhotoClick(); // Call the handlePhotoClick function when a photo is clicked
+  };
+
 
   const username = props.props.user.username  || props.props.username
   const imageSource = props.props.urls.full || props.imageSource
@@ -28,15 +33,7 @@ const PhotoListItem = (props) => {
         setFill={props.setFill}
         toggleFavourite={toggleFavourite} // Pass the toggleFavourite prop to the PhotoFavButton component
         />
-        <img className="photo-list__image" src={imageSource}/>
-        {/* <div className='photo-list__user-profile '>
-            <div className='photo-list__user-info'>
-                <div className='photo-list__user-details '>{username},                 {profile}
-</div>  
-                <div className='photo-list__user-location '> {location.city}, {location.country}</div>
-
-            </div>
-        </div> */}
+        <img className="photo-list__image" src={imageSource} onClick={handleClick}/>
       
     </div>
   )
