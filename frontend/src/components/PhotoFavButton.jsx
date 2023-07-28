@@ -9,7 +9,8 @@ function PhotoFavButton(props) {
 
   const handleToggleFavourite = () => {
     setSelected(!selected);
-    toggleFavourite(id); // Call the toggleFavourite function from props with the photo ID
+    props.clickFav(id)
+    //toggleFavourite(id); // Call the toggleFavourite function from props with the photo ID
   };
 
 
@@ -24,7 +25,6 @@ function PhotoFavButton(props) {
       <div className="photo-list__fav-icon-svg">
       <FavIcon 
       displayAlert={props.displayAlert} 
-      setDisplayAlert={props.setDisplayAlert} 
       fill={props.fill} 
       setFill={props.setFill}
       toggleFavourite={toggleFavourite}

@@ -7,23 +7,12 @@ export function FavIcon({
   outlineWidth, 
   stroke, 
   displayAlert, 
-  setDisplayAlert, 
-  setFill
+  id
 }) {
-    const updateFav = () => {
-        setDisplayAlert(!displayAlert)
-        if (fill === 'white'){
-            setFill('red')
-        } else{
-            setFill('white')
-        }
-    };
+
   
     return (
     <svg 
-    onClick={()=>{
-        updateFav();
-        }} 
         width={width} 
         height={height} 
         viewBox="0 0 24 19" 
@@ -38,7 +27,7 @@ export function FavIcon({
       strokeLinecap="round" 
       strokeLinejoin="round"
       />
-      {displayAlert && <circle cx="21" cy="4" r="2.75" fill="#FFFF00" stroke="#C80000" strokeWidth="0.5"/>}
+     {displayAlert && displayAlert.includes(id) && <circle cx="21" cy="4" r="2.75" fill="#FFFF00" stroke="#C80000" strokeWidth="0.5"/>}
     </svg>
   );
 }

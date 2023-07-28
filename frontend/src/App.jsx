@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PhotoList from './components/PhotoList';
 import './App.scss';
 import TopNavigationBar from './components/TopNavigationBar';
@@ -8,29 +8,22 @@ import photos from './mocks/photos'; // Import your photos data
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-    const [displayAlert, setDisplayAlert] = useState(false);
-    const [fill, setFill] = useState('white');
+    const [displayAlert, setDisplayAlert] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [selectedPhoto, setSelectedPhoto] = useState(null);
 
     const toggleModal = () => {
         setIsModalOpen(!isModalOpen);
       };
     
-      const handlePhotoClick = (photo) => {
-        setSelectedPhoto(photo);
-        toggleModal(); // Call toggleModal to show the modal
-      };
-    
+     
+    useEffect(()=>{
+console.log('change')
+    },[displayAlert])
     return(
     <div className="App">
         <HomeRoute 
         displayAlert={displayAlert} 
         setDisplayAlert={setDisplayAlert} 
-        fill={fill} 
-        setFill={setFill}
-        toggleFavourite={() => {}} // Dummy toggleFavourite function for now
-        handlePhotoClick={handlePhotoClick} // Pass handlePhotoClick to the HomeRoute component 
         />
         
       {isModalOpen && (
