@@ -1,12 +1,13 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 
 import '../styles/PhotoListItem.scss';
 import PhotoFavButton from './PhotoFavButton' 
+import PhotoDetailsModal from '../routes/PhotoDetailsModal';
 
 
 const PhotoListItem = (props) => {
-
+   
 //   const username = props.props.user.username  || props.props.username
   const imageSource = props.props.urls.full || props.imageSource
   const id = props.props.id || props.id
@@ -22,10 +23,21 @@ const clickFav =()=>{
         props.setDisplayAlert([...props.displayAlert,props.props.id])
      }
    }
+   const openModal = ()=>  {
+    props.setModalIsOpen(true)
+    props.setSelectedPhoto({
+        username : props.props.user.username,  
+        imageSource :props.props.urls.full, 
+        id : props.props.id,
+        location : props.props.location,
+        profile : props.props.urls.regular 
+    })
+
+   }
 
   return (
     
-    <div className="photo-list__item" id={id}>
+    <div className="photo-list__item" id={id}  onClick={()=>{openModal()}}>
         <PhotoFavButton 
              clickFav={clickFav} 
         // className="photo-list--fav-icon"  
