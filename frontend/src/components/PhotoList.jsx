@@ -7,7 +7,6 @@ const PhotoList = ({
     setDisplayAlert,
     photos
   }) => {
-// console.log((displayAlert.includes(index)? 'red':'white' ))
     return (
       <ul className="photo-list">
         {photos.map((photoItem, index) => (

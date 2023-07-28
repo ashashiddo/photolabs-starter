@@ -16,9 +16,7 @@ const App = () => {
       };
     
      
-    useEffect(()=>{
-console.log('change')
-    },[displayAlert])
+ 
     return(
     <div className="App">
         <HomeRoute 

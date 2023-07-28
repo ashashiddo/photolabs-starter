@@ -6,8 +6,7 @@ export function FavIcon({
   fill, 
   outlineWidth, 
   stroke, 
-  displayAlert, 
-  id
+  anyFavorites, 
 }) {
 
   
@@ -27,7 +26,7 @@ export function FavIcon({
       strokeLinecap="round" 
       strokeLinejoin="round"
       />
-     {displayAlert && displayAlert.includes(id) && <circle cx="21" cy="4" r="2.75" fill="#FFFF00" stroke="#C80000" strokeWidth="0.5"/>}
+     {anyFavorites && <circle cx="21" cy="4" r="2.75" fill="#FFFF00" stroke="#C80000" strokeWidth="0.5"/>}
     </svg>
   );
 }
