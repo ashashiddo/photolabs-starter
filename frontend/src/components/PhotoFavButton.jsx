@@ -25,6 +25,8 @@ function PhotoFavButton(props) {
       fill={props.fill} 
       setFill={props.setFill}
       toggleFavourite={toggleFavourite}
+      width={'30'}
+      height={'30'}
       />
       </div>
     </div>

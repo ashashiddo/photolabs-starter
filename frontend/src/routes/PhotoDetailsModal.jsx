@@ -1,8 +1,10 @@
 import React from 'react';
 
 import '../styles/PhotoDetailsModal.scss'
+import PhotoList from '../components/PhotoList';
+import photos from '../mocks/photos';
 
-export const PhotoDetailsModal = ({toggleModal,photoDetails}) =>{
+export const PhotoDetailsModal = ({toggleModal,photoDetails,displayAlert, setDisplayAlert,setModalIsOpen,setSelectedPhoto,modalIsOpen}) =>{
     console.log(photoDetails) 
     return(
   <div className='photo-details-modal'>
@@ -20,7 +22,36 @@ export const PhotoDetailsModal = ({toggleModal,photoDetails}) =>{
         </defs>
       </svg>
     </button>
-    {photoDetails.username}
+    <div style={{margin:"30px"}}>
+    <img className="photo-details-modal--images" width="100%" height="500px" src={photoDetails.imageSourceFull} />
+   <div>
+  
+    <div style={{display:"flex", flexDirection:"row",alignItems:"flex-end"}}>
+    <img className="photo-details-modal-profile" style={{borderRadius:"40px"}}width="10%" height="10%" src={photoDetails.profile} />
+       <div>
+        <div style={{color:"black", fontWeight:"900",marginLeft:"10px"}}>
+        {photoDetails.username}
+        </div>
+        <div style={{color:"grey",marginLeft:"10px"}}>
+        {photoDetails.location.city}, {photoDetails.location.country}
+        </div>
+        </div>
+
+    </div>
+    <header className='photo-details-modal--header'>Similar photos</header>
+
+    </div>
+    </div>
+   
+
+<PhotoList
+  photos={photos}
+  displayAlert={displayAlert}
+  setDisplayAlert={setDisplayAlert}
+  setModalIsOpen={setModalIsOpen}
+  setSelectedPhoto={setSelectedPhoto}
+  modalIsOpen={modalIsOpen}
+  />
   </div>
 )}
 

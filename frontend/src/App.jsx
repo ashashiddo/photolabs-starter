@@ -31,7 +31,11 @@ const App = () => {
         <PhotoDetailsModal
           photoDetails={selectedPhoto}
           toggleModal={toggleModal} // Pass toggleModal to the PhotoDetailsModal component
-
+          displayAlert={displayAlert} 
+          setDisplayAlert={setDisplayAlert} 
+          setModalIsOpen={setModalIsOpen}
+          setSelectedPhoto={setSelectedPhoto}
+          modalIsOpen={modalIsOpen}
         />
       )}
       </div>

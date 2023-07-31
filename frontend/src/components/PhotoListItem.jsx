@@ -9,7 +9,7 @@ import PhotoDetailsModal from '../routes/PhotoDetailsModal';
 const PhotoListItem = (props) => {
    
 //   const username = props.props.user.username  || props.props.username
-  const imageSource = props.props.urls.full || props.imageSource
+  const imageSourceRegular = props.props.urls.full || props.imageSourceRegular
   const id = props.props.id || props.id
 //   const location = props.props.location || props.location
 //   const profile = props.props.urls.regular  || props.profile
@@ -23,14 +23,16 @@ const clickFav =()=>{
         props.setDisplayAlert([...props.displayAlert,props.props.id])
      }
    }
+   console.log('**',props)
    const openModal = ()=>  {
     props.setModalIsOpen(true)
     props.setSelectedPhoto({
         username : props.props.user.username,  
-        imageSource :props.props.urls.full, 
+        imageSourceRegular :props.props.urls.regular, 
+        imageSourceFull :props.props.urls.full, 
         id : props.props.id,
         location : props.props.location,
-        profile : props.props.urls.regular 
+        profile : props.props.user.profile 
     })
 
    }
@@ -45,8 +47,24 @@ const clickFav =()=>{
         fill={(props.displayAlert.includes(id)? 'red':'white' )}
 
         />
-        <img className="photo-list__image" src={imageSource} />
-      
+        <img className="photo-list__image" src={imageSourceRegular} />
+        <div style={{display:"flex", flexDirection:"row",alignItems:"flex-end"}}>
+
+<img className="photo-details-modal-profile" style={{borderRadius:"40px"}}width="70px" height="10%" src={props.props.user.profile } />
+
+
+
+
+       <div>
+        <div style={{color:"black", fontWeight:"900",marginLeft:"10px"}}>
+        {props.props.user.username}
+        </div>
+        <div style={{color:"grey",marginLeft:"10px"}}>
+        {props.props.location.city}, {props.props.location.country}
+        </div>
+        </div>
+
+    </div>
     </div>
   )
 }

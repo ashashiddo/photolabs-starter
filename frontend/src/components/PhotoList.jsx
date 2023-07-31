@@ -7,7 +7,8 @@ const PhotoList = ({
     setDisplayAlert,
     photos,
     setModalIsOpen,
-    setSelectedPhoto
+    setSelectedPhoto,
+    modalIsOpen
 
   }) => {
    
@@ -23,6 +24,7 @@ const PhotoList = ({
             setDisplayAlert={setDisplayAlert}
             setModalIsOpen={setModalIsOpen}
             setSelectedPhoto={setSelectedPhoto}
+            modalIsOpen={modalIsOpen}
 
             />
           ))}
