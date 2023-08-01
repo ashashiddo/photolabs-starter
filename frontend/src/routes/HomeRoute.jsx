@@ -7,7 +7,7 @@ import photos from '../mocks/photos';
 const HomeRoute = ({ 
     displayAlert, 
     setDisplayAlert, 
-    setModalIsOpen,
+    toggleModal,
     setSelectedPhoto
 }) =>{ 
    
@@ -22,7 +22,7 @@ return(
         photos={photos}
         displayAlert={displayAlert}
         setDisplayAlert={setDisplayAlert}
-        setModalIsOpen={setModalIsOpen}
+        toggleModal={toggleModal} 
         setSelectedPhoto={setSelectedPhoto}
         />
         </div>

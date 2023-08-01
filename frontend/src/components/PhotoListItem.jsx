@@ -14,7 +14,6 @@ const PhotoListItem = (props) => {
 //   const location = props.props.location || props.location
 //   const profile = props.props.urls.regular  || props.profile
 const clickFav =()=>{
-    console.log(props.displayAlert)
      if(props.displayAlert.includes(props.props.id)){
         let newDisplayAlert = [...props.displayAlert]
         newDisplayAlert.splice(newDisplayAlert.indexOf(props.props.id), 1);
@@ -23,9 +22,8 @@ const clickFav =()=>{
         props.setDisplayAlert([...props.displayAlert,props.props.id])
      }
    }
-   console.log('**',props)
    const openModal = ()=>  {
-    props.setModalIsOpen(true)
+    props.toggleModal()
     props.setSelectedPhoto({
         username : props.props.user.username,  
         imageSourceRegular :props.props.urls.regular, 

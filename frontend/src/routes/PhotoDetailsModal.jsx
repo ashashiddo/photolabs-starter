@@ -5,7 +5,6 @@ import PhotoList from '../components/PhotoList';
 import photos from '../mocks/photos';
 
 export const PhotoDetailsModal = ({toggleModal,photoDetails,displayAlert, setDisplayAlert,setModalIsOpen,setSelectedPhoto,modalIsOpen}) =>{
-    console.log(photoDetails) 
     return(
   <div className='photo-details-modal'>
     <button className='photo-details-modal--close-button' onClick={()=>{toggleModal()}}>

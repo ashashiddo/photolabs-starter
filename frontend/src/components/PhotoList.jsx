@@ -6,13 +6,12 @@ const PhotoList = ({
     displayAlert,
     setDisplayAlert,
     photos,
-    setModalIsOpen,
     setSelectedPhoto,
-    modalIsOpen
+    modalIsOpen,
+    toggleModal
 
   }) => {
    
-
     return (
       <ul className="photo-list">
         {photos.map((photoItem, index) => (
@@ -22,7 +21,7 @@ const PhotoList = ({
             props={photoItem}
             displayAlert={displayAlert}
             setDisplayAlert={setDisplayAlert}
-            setModalIsOpen={setModalIsOpen}
+            toggleModal={toggleModal}
             setSelectedPhoto={setSelectedPhoto}
             modalIsOpen={modalIsOpen}
 
